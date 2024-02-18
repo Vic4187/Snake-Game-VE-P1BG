@@ -35,18 +35,15 @@ function gameLoop() {
     snake.x += snake.dx; // move snake by its velocity
     snake.y += snake.dy;
     
-    // horizontal wrap
     if (snake.x < 0) snake.x = canvas.width - grid;
     else if (snake.x >= canvas.width) snake.x = 0;
 
-    // vertical wrap
     if (snake.y < 0) snake.y = canvas.height - grid;
     else if (snake.y >= canvas.width) snake.y = 0;
 
     //keep track of snake's cells. Head is at front of array.
     snake.cells.unshift({x: snake.x, y: snake.y});
 
-    // remove cells as snake moves away
     if (snake.cells.length > snake.maxCells) snake.cells.pop();
 
     // draw apple
