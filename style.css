@@ -1,0 +1,113 @@
+body {
+  /* background-image: url(assets/jungle.jpeg); */
+  /* background: rgb(202, 46, 46); */
+  align-items: center;
+  justify-content: center;
+  /* border: 20px solid#000000; */
+  background: url(assets/snakeSkin.jpg);
+  /* height: 100vh; */
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0px;
+    color: blue;
+  -webkit-text-stroke: 1px rgb(243, 72, 72);
+  text-shadow:
+      3px 3px 0 gold,
+    -1px -1px 0 #0bd074,  
+     1px -1px 0 #bee716,
+     -1px 1px 0 #ec0ca5,
+      1px 1px 0 #02c7f8;
+}
+
+h2 {
+  text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 45px;
+    font-weight: bold;
+    margin: 40px;
+    color: blue;
+  -webkit-text-stroke: 1px rgb(243, 72, 72);
+  text-shadow:
+      3px 3px 0 gold,
+    -1px -1px 0 #0bd074,  
+     1px -1px 0 #bee716,
+     -1px 1px 0 #ec0ca5,
+      1px 1px 0 #02c7f8;
+}
+
+.instructions {
+  color: white;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  /* grid-gap: 10px; */
+  padding: 20px;
+  /* border: 20px solid rgb(0, 0, 0); */
+  /* background-color: rgb(214, 135, 45); */
+  grid-template-columns: repeat(2, 2fr);
+  margin: 80px;
+  width: auto;
+  height: auto;
+}
+
+.grid-container > div {
+background-color: rgb(0, 0, 0);
+text-align: center;
+padding: 20px 0;
+font-size: 24px;
+font-family: Arial, Helvetica, sans-serif
+}
+
+.buttons {
+  text-align: center;
+  
+}
+
+.pause, buttons {
+  background-color: rgb(0, 0, 0);
+  border: 5px solid rgb(255, 255, 255);
+  color: white;
+  padding: 25px 25px;
+  text-align: center;
+  display: inline-block;
+  font-size:30px;
+}
+
+button:hover {
+  transition-property: background-color, font-size, transform, color, ghostwhite;
+  transition-timing-function: ease-in-out;
+  color: white;
+  transition-duration: 1s;
+  background-color: #000000;
+
+}  
+
+@media screen and (min-width: 414px) and (max-width: 736px){
+  .div-only-mobile{
+   display:none;
+   }
+ }
+
+html, body {
+  /* height: 100%; */
+  margin: 0;
+}
+
+canvas {
+  border: 40px solid rgb(235, 32, 32);
+}
+
+#game{
+  border-style: double; border-color: aquamarine;
+}

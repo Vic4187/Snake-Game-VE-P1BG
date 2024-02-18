@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Welcome to the Snake Game!</title>
+    </head>
+    <body>
+    <div class="grid-container">
+        <div>
+        <p>
+            <h1 class="title"> The Snake Game </h1>
+            <h2 class= "currentScore">Current Score: </h2>
+            <h2 class="scoreboard">0</h2>   
+        </p>   
+        <p>
+            <h2 class= "hiScore">High Score: </h2>
+            <h2 class="hi">0</h2>
+        </p>
+        </div>
+        <div>
+            <canvas width="400" height="400" id="game"></canvas>
+        </div>
+    </div>
+    <div class="div-only-mobile">
+        <div class="buttons">
+            <p class="instructions">Use arrow keys in keyboard for direction, spaec bar to pause/continue game.</p>
+            <div>
+                <button class="up-button" onmousedown="up()">↑</button>
+            </div>
+            <div>
+                <button class="left-button" onmousedown="left()">←</button>
+                <button class="right-button" onmousedown="right()">→</button>
+            </div>
+            <div>
+                <button class="down-button" onmousedown="down()">↓</button>
+            </div>
+            <button class="pause-button" onmousedown="pause()" class="pause">Pause/Continue</button>
+        </div>
+        
+    </div>
+
+        <script src="index.js"></script>
+        <script src="snake.js"></script>
+    </body>
+</html>
