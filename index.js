@@ -1,4 +1,3 @@
-// Adapted from: https://gist.github.com/straker/ff00b4b49669ad3dec890306d348adc4
 var scoreDisplayElem = document.querySelector('.scoreboard');
 var hiscoreDisplayElem = document.querySelector('.hi');
 var canvas = document.getElementById('game');
@@ -11,10 +10,10 @@ function resetSnake() {
     var snake = {
         x: 160,
         y: 160,
-        dx: grid, // moves one grid length per frame
+        dx: grid,
         dy: 0,
-        cells: [], // keep track of all grids occupied by snake
-        maxCells: 4, // length of snake, grows when eating apple
+        cells: [],
+        maxCells: 4,
     };
     return snake;
 }
@@ -29,35 +28,29 @@ function gameLoop() {
     
     requestAnimationFrame(gameLoop);
     if (++count < 4) return;
-    if (paused) throwError(); // throw an error to force a pause
+    if (paused) throwError();
     count = 0;
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    snake.x += snake.dx; // move snake by its velocity
+    snake.x += snake.dx;
     snake.y += snake.dy;
     
-    // horizontal wrap
     if (snake.x < 0) snake.x = canvas.width - grid;
     else if (snake.x >= canvas.width) snake.x = 0;
 
-    // vertical wrap
     if (snake.y < 0) snake.y = canvas.height - grid;
     else if (snake.y >= canvas.width) snake.y = 0;
 
-    //keep track of snake's cells. Head is at front of array.
     snake.cells.unshift({x: snake.x, y: snake.y});
 
-    // remove cells as snake moves away
     if (snake.cells.length > snake.maxCells) snake.cells.pop();
 
-    // draw apple
-    context.fillStyle = 'green';
+    context.fillStyle = 'red';
     context.fillRect(apple.x, apple.y, grid+1, grid+1);
 
-    // draw snake
     context.fillStyle = 'blue';
     snake.cells.forEach(function(cell, index) {
-        context.fillRect(cell.x, cell.y, grid+1, grid+1) // size of cell -1 for grid effect.
+        context.fillRect(cell.x, cell.y, grid+1, grid+1)
         if (cell.x === apple.x && cell.y == apple.y) {
             snake.maxCells++;
             scoreDisplayElem.innerHTML = ++score;
@@ -68,9 +61,8 @@ function gameLoop() {
                 hiscoreDisplayElem.innerHTML = '' + hiscore;
             }
         }
-        // check collision with all cells
+
         for (var i = index + 1; i < snake.cells.length; i++) {
-            // if snake touches itself, reset game
             if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
                 scoreDisplayElem.innerHTML = ' 0';
                 score = 0;
@@ -82,9 +74,7 @@ function gameLoop() {
     });
 }
 
-// listen to keyboard events to move the snake
 document.addEventListener('keydown', function(e) {
-    // prevent snake from reversing into itself
     if (e.which === 37 && snake.dx === 0) {
         snake.dx = -grid;
         snake.dy = 0;
@@ -135,6 +125,5 @@ function pause() {
     paused = !paused;
     document.querySelector('.pause').innerHTML = paused ? 'Play' : 'Pause';
 }
-
 
 requestAnimationFrame(gameLoop);
