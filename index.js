@@ -1,4 +1,3 @@
-// Adapted from: https://gist.github.com/straker/ff00b4b49669ad3dec890306d348adc4
 var scoreDisplayElem = document.querySelector('.scoreboard');
 var hiscoreDisplayElem = document.querySelector('.hi');
 var canvas = document.getElementById('game');
