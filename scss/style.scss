@@ -1,0 +1,29 @@
+@import './config';
+@import './containers';
+@import './btnConfig';
+
+body {
+    align-items: center;
+    justify-content: center;
+    background: url(../assets/snakeSkin.jpg);
+    width: 100%;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+@include game-container;
+
+.instructions {
+    color: $light_color;
+}
+
+@include buttons;
+
+@media screen and (min-width: 414px) and (max-width: 736px){
+    .div-only-mobile{
+     display:none;
+     }
+   }

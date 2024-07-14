@@ -1,0 +1,15 @@
+@import './config';
+
+@mixin buttons {
+    .buttons {
+        text-align: center;
+    }
+
+    button:hover {
+        transition-property: background-color, font-size, transform, color, ghostwhite;
+        transition-timing-function: ease-in-out;
+        color: $light_color;
+        transition-duration: 1s;
+        background-color: $background-color;
+    }
+}
